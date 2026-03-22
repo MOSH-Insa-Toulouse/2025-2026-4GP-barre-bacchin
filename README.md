@@ -42,3 +42,7 @@ Enfin la modélisation 3D donne :
 **INSERER IMAGE SCHEMATIQUE**
 
 # Partie III : Fabrication et fonctionnement
+
+# Partie IV : Banc de test et caractérisation
+
+# Partie V : Conclusion
