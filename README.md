@@ -16,7 +16,7 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 
 ## Partie I.2 : Liste du matériel utilisé
 
-1. Capteur en graphite :
+1. Capteur en graphite 
    - Feuille de papier
    - Différents crayons à papier (HB, 2B, 4B…)
 2. Arduino et modules
@@ -29,9 +29,9 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
    - Résistances :  1*1kΩ + 1*10kΩ + 2*100kΩ
    - Potentiomètre digital MCP 41xxx
 4. Matériel pour réaliser le PCB
-   - Plaque PCB (cuivre simple ou double face)
-   - Matériel de développement / prototypage
-   - Mini-perceuse ou machine à trous
+   - Plaque d'époxy recouverte d'une couche de cuivre et de résine photosensible
+   - Matériel de développement : Machine UV + révélateur + perclorure de fer
+   - Machine à trous
    - Fer à souder + etain
    - Pin headers 
 
@@ -60,8 +60,40 @@ Ainsi notre empreinte ressemble à cela :
 Enfin la modélisation 3D donne :  
 **INSERER IMAGE SCHEMATIQUE**
 
-# Partie III : Fabrication et fonctionnement
+# Partie III : Fabrication et Fonctionnement
+## Partie III.1 : Fabrication du PCB
+Une fois le PCB conçu, vérifié et corrigé sous KiCad, nous pouvons passer à sa fabrication. Pour cela, le circuit est exporté depuis KiCad sous la forme d’un fichier typon, qui servira de base pour la gravure du circuit imprimé.
+
+À insérer : image du fichier typon
+
+1. Développement
+
+Le fichier typon est imprimé sur une feuille transparente afin de créer un masque. Ce masque est ensuite positionné sur une plaque d’époxy recouverte de cuivre et d’une résine photosensible.La plaque est exposée aux rayons UV, ce qui permet de transférer le motif des pistes du typon sur la résine. Après exposition, la plaque est plongée dans un révélateur afin d’éliminer la résine photosensible des zones exposées. Elle est ensuite immergée dans un bain de perchlorure de fer, qui dissout le cuivre non protégé et fait apparaître les pistes du circuit.
+
+Une fois cette étape terminée, les pistes sont vérifiées à l’aide d’un multimètre afin de détecter d’éventuelles coupures ou courts-circuits. Certaines pistes imparfaitement révélées ont été corrigées manuellement à l’aide d’un cutter.
+
+2. Création du PCB
+
+Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 0,6 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
+
+À insérer : image de la zone concernée par le via
+
+3. Tests
+
+Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du circuit. Nous avons notamment vérifié que l’amplificateur amplifiait correctement la tension de sortie du capteur, ce qui a été confirmé expérimentalement.
+
+
+## Partie III.2 : Code et test du potentiometre digital
+
+## Partie III.3 : Application android
 
 # Partie IV : Banc de test et caractérisation
 
 # Partie V : Conclusion
+
+# Contacts
+
+Voici nos contacts si vous souhaitez des informations complémentaires
+
+Bacchin Lisa : bacchin@insa-toulouse.fr
+Barre Ronan : barr@insa-toulouse.fr
