@@ -9,12 +9,31 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 ## Partie I.1 : Liste des Livrables
 
 1. Un shield PCB adapté pour une Arduino UNO permettant de faire la mesure de résistance du capteur graphite, celle du capteur commercial et de connecter un module Bluetooth pour envoyer les résulats sur une application.
-2. La dite application permettant de voir la valeur de la résistance mesuré et la variation relative de résistance.
+2. Une application Android (sous MIT App Inventor) permettant de voir la valeur de la résistance mesuré et la variation relative de résistance.
 3. Le code Arduino qui gère la mesure de flexion et le module bluetooth
 4. Le protocole de mesure du banc de test
 5. La datasheet du capteur graphite
 
 ## Partie I.2 : Liste du matériel utilisé
+
+1. Capteur en graphite :
+   - Feuille de papier
+   - Différents crayons à papier (HB, 2B, 4B…)
+2. Arduino et modules
+   - Carte Arduino UNO + câble USB
+   - Module Bluetooth HC-05
+   - Flex Sensor + résistance de 47 Ω
+3. Circuit amplificateur
+   - Amplificateur opérationnel LTC1050
+   - Condensateurs : 1* 100 nF + 1* 1 µF
+   - Résistances :  1*1kΩ + 1*10kΩ + 2*100kΩ
+   - Potentiomètre digital MCP 41xxx
+4. Matériel pour réaliser le PCB
+   - Plaque PCB (cuivre simple ou double face)
+   - Matériel de développement / prototypage
+   - Mini-perceuse ou machine à trous
+   - Fer à souder + etain
+   - Pin headers 
 
 
 # Partie II : Réalisation théorique
