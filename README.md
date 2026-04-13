@@ -31,7 +31,7 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 4. Matériel pour réaliser le PCB
    - Plaque d'époxy recouverte d'une couche de cuivre et de résine photosensible
    - Matériel de développement : Machine UV + révélateur + perclorure de fer
-   - Machine à trous
+   - Machine à perforer
    - Fer à souder + etain
    - Pin headers 
 
