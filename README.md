@@ -44,7 +44,11 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 La résistance du capteur est énorme, de l'ordre du GigaOhm, ainsi le courant obtenu en sortie est très faible. Il nous faut donc amplifier le signal afin de l'exploiter.  
 
 Pour ce faire nous avons réaliser un circuit amplificateur transimpédance que nous avons simulé sur LTSpice.
-<img src="Schema_capteur_photo.png" width="600">
+<p align="center">
+  <img src="Photo/Schema_capteur_photo.png" width="600"><br>
+  <em>Figure 1 – Schéma LTSpice du capteur et du circuit amplificateur</em>
+</p>
+
 
 ## Partie II.2 : Design du PCB sous KiCad
 
@@ -52,14 +56,26 @@ Une fois que nous avons fixé ce la forme de notre circuit et tous les modules q
 Pour ce faire, on a utilisé le logiciel KiCad. 
 Comme tous les composants n'étaient pas présent dans la bibliothèque de composant de KiCad, nous avons dû réalisé les schématiques et les empreintes du flex sensor, du capteur graphite, du module bluetooth et du potentiomètre digital.   
 Voilà le schématique complet de notre shield :   
-<img src="schematique_global.png" width="600">
+
+<p align="center">
+  <img src="Photo/schematique_global.png" width="600"><br>
+  <em>Figure 2 – Schématique kicad du projet</em>
+</p>
 
 Concernant les empreintes, nous n'allons pas souder les composants onéreux directement. Ainsi pour le flex sensor et le module bluetooth nous avons prévu des pins dans lesquels nous brancherons les modules. Pour l'AOP et le potentiomètre nous allons souder des support DIP8.  
 Ainsi notre empreinte ressemble à cela :  
-<img src="Shield.png" width="600">
+<p align="center">
+  <img src="Photo/Shield.png" width="600"><br>
+  <em>Figure 3 – Empreinte du projet</em>
+</p>
+
 
 Enfin la modélisation 3D donne :  
-<img src="3D.png" width="600">
+
+<p align="center">
+ <img src="Photo/3D.png" width="600"><br>
+  <em>Figure 3 – Modélisation 3D du projet</em>
+</p>
 
 
 # Partie III : Fabrication et Fonctionnement
@@ -79,7 +95,8 @@ Une fois cette étape terminée, les pistes sont vérifiées à l’aide d’un 
 Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 0,6 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
 <p align="center">
   <img src="Photo/Photo_soudure.png" width="300">
-  <img src="Photo/Photo_soudure_composant.png" width="300">
+  <img src="Photo/Photo_soudure_composant.png" width="300"><br>
+  <em>Figure 4 – Soudure du PCB</em>
 </p>
 
 
