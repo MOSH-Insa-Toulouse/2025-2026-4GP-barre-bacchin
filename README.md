@@ -77,8 +77,11 @@ Une fois cette étape terminée, les pistes sont vérifiées à l’aide d’un 
 2. Création du PCB
 
 Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 0,6 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
+<p align="center">
+  <img src="Photo/Photo_soudure.png" width="300">
+  <img src="Photo/Photo_soudure_composant.png" width="300">
+</p>
 
-À insérer : image de la zone concernée par le via
 
 3. Tests
 
