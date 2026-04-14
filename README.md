@@ -44,6 +44,7 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 La résistance du capteur est énorme, de l'ordre du GigaOhm, ainsi le courant obtenu en sortie est très faible. Il nous faut donc amplifier le signal afin de l'exploiter.  
 
 Pour ce faire nous avons réaliser un circuit amplificateur transimpédance que nous avons simulé sur LTSpice.
+<img src="Schema_capteur_photo.png" width="600">
 
 ## Partie II.2 : Design du PCB sous KiCad
 
@@ -51,14 +52,15 @@ Une fois que nous avons fixé ce la forme de notre circuit et tous les modules q
 Pour ce faire, on a utilisé le logiciel KiCad. 
 Comme tous les composants n'étaient pas présent dans la bibliothèque de composant de KiCad, nous avons dû réalisé les schématiques et les empreintes du flex sensor, du capteur graphite, du module bluetooth et du potentiomètre digital.   
 Voilà le schématique complet de notre shield :   
-**INSERER IMAGE SCHEMATIQUE**
+<img src="schematique_global.png" width="600">
 
 Concernant les empreintes, nous n'allons pas souder les composants onéreux directement. Ainsi pour le flex sensor et le module bluetooth nous avons prévu des pins dans lesquels nous brancherons les modules. Pour l'AOP et le potentiomètre nous allons souder des support DIP8.  
 Ainsi notre empreinte ressemble à cela :  
-**INSERER IMAGE SCHEMATIQUE**
+<img src="Shield.png" width="600">
 
 Enfin la modélisation 3D donne :  
-**INSERER IMAGE SCHEMATIQUE**
+<img src="3D.png" width="600">
+
 
 # Partie III : Fabrication et Fonctionnement
 ## Partie III.1 : Fabrication du PCB
