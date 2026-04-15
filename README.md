@@ -135,7 +135,7 @@ Ces deux méthodes sont nécessaires car le capteur étant très sensible à la 
   <em>Figure IV.1 : Banc de test utilisé </em>
 </p>
 
-Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de proportionnalité sur les courbes linéaires correspond à al sensibilité du capteur. 
+Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de proportionnalité sur les courbes linéaires correspond à la sensibilité du capteur. La déformation en compression n'a été faite qu'avec le crayon 6B car ce test est plus coûteux en matière pour le capteur ainsi, sur les crayons moins gras, l'augmentation de résistance dû à la perte de matière prédominait devant la chute dû à la compression.
 
 **Crayon 6B** 
 <p align="center"> 
@@ -160,6 +160,16 @@ Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de
   <img src="Photo/B_tension.png" width="1000"><br>
   <em>Figure IV.5 : Courbe charactéristique du capteur avec le crayon B en tension </em>
 </p>
+
+**Capteur commercial**
+<p align="center"> 
+  <img src="Photo/Flex_sensor.png" width="1000"><br>
+  <em>Figure IV.6 : Courbe charactéristique du capteur commercial en tension </em>
+</p>
+
+On remarque que la sensibilité est plus forte pour les crayons moins gras cependant la resistance étant beaucoup plus grande le signal et les mesures obtenues sont beaucoup plus irrégulières et le capteur moins durable. En effet, le capteur perd trop de matière trop vite pour être utilisé de manière répétée.  La linéarité du capteur se voit particulièrement sur le crayon 6B qui a une courbe de tendance proche des données mesurées.  
+Par ailleurs, sur le crayon 3B avec la méthode 2, on observe clairement un comportement exponentiel, se rapprochant de la théorie des systèmes granulaires.  
+En comparaison avec le capteur commercial, présenté en figure IV.6, notre capteur a une piètre sensibilité et surtout subit des déformations irréversibles modifiant sa résistance à plat contrairement au capteur commercial.
 
 
 
