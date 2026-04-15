@@ -50,6 +50,48 @@ Pour ce faire nous avons réaliser un circuit amplificateur transimpédance que 
 </p>
 
 
+Sur le logiciel de simulation, nous avons modélisé l’alimentation de l’Arduino en 5 V, alimentation qui fournit également l’énergie nécessaire au capteur et à l’amplificateur opérationnel (AOP).
+Le capteur a ensuite été représenté à l’aide d’un générateur de pulses, ce qui permet de simuler son comportement dynamique.
+Afin de reproduire des conditions réelles, une source de bruit a été ajoutée au montage. 
+
+
+Le circuit amplificateur est constitué de trois filtres passe-bas, chacun ayant un rôle bien précis dans l’élimination des bruits indésirables.
+
+   - Filtre passe-bas 16 Hz (en entrée)
+
+Ce filtre permet de supprimer les bruits parasites provenant de vibrations mécaniques ou de tremblements.
+
+$$ Fc_{1}  = 1/(2\pi * C1 * R1 ) = 1/(2\pi * 100n * 100k)  ≃ 16 Hz$$
+
+
+
+   - Filtre passe-bas 1.6 Hz (réduction du bruit 50 Hz)
+
+Ce filtre atténue les résidus issus du bruit secteur 50 Hz.
+
+$$ Fc_{2}  = 1/(2\pi * C2 * R4 ) = 1/(2\pi * 1µm * 100k)  ≃ 1.6 Hz $$
+
+
+
+
+
+   - Filtre passe-bas 1.6 kHz (en sortie de l’AOP)
+
+Ce filtre élimine les bruits haute fréquence générés par l’électronique (AOP, câblage, parasites HF).
+
+$$ Fc_{3}  = 1/(2\pi * C3 * R5 ) = 1/(2\pi *100n * 1k)  ≃ 1.6 KHz $$
+
+
+
+Plusieurs simulations ont été effectuées afin de vérifier :
+-  L'amplication du le signal fourni par le capteur
+- La filtration du bruit est efficace
+
+
+
+À partir du montage, il est également possible de déterminer la relation mathématique reliant la résistance du capteur à sa tension de sortie : 
+
+
 ## Partie II.2 : Design du PCB sous KiCad
 
 Une fois que nous avons fixé ce la forme de notre circuit et tous les modules que nous voulons connecté à l'Arduino, nous avons pu concevoir la shield.  
