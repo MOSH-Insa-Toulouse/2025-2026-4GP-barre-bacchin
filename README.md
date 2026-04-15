@@ -111,6 +111,56 @@ Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du ci
 
 # Partie IV : Banc de test et caractérisation
 
+Le circuit et le code étant fonctionnel, nous nous sommes lancé dans la caractérisation du capteur. Pour cela nous utilisons un banc de test, présenté en figure IV.1, dont les dimensions sont connues. Grâce au programme de centrage, on obtient une tension centré autour de 2.5V et on rappelle que la résistance du capteur est donnée par la formule : 
+<p align="center">
+  <img src="Photo/resistance_capteur" width="300">
+  <em> (Eq.1) La resistance 2 étant celle du potentiomètre digital </em>
+</p>
+Le banc de test a des rayons de courbures allant de 1cm à 2,5cm par incrément de 0,25cm. Pour réaliser la mesure on étale le capteur sur le banc de test en le fixant de sorte à ce qu'il épouse la forme. Par cette technique la déformation appliquée est connue et contrôlée, nous permettant de caractériser de manière fiable le capteur.  
+La variable d'intérêt est la variation relative de résistance par rapport à la déformation, elles sont définies comme : 
+<p align="center"> 
+  <img src="Photo/variation_relative.png" width="300">
+  <em>(Eq.2) Ici R0 correspond à la résistance du capteur lorsqu'il est plat (flat resistance) </em>
+</p>
+
+<p align="center">
+  <img src="Photo/vue_dessus_banc.jpg" width="300">
+  <img src="Photo/vue_face_banc.jpg" width="300">
+  <em>*Figure IV.1* : Banc de test utilisé </em>
+</p>
+Avec tout cela nous avons pu obtenir les courbes caractéristiques de notre capteur en fonction de différents crayons à papier utilisé. Pour cela deux méthodes ont été employées :<br>  
+- Méthode 1 : la résistance R0 n'est réinitialisé qu'au début des mesures   <br>   
+- Méthode 2 : la résistance R0 est réinitialisé entre chaque mesure  <br>   
+Ces deux méthodes sont nécessaires car le capteur étant très sensible à la perte de matière du aux utilisations, la resistance R0 change beaucoup. Cependant dans une application réelle il n'est pas forcément possible de revenir à l'état plat entre chaque mesure ainsi la méthode 1 est importante.  <br>
+<br>
+Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de proportionnalité sur les courbes linéaires correspond à al sensibilité du capteur. 
+
+**Crayon 6B** 
+<p align="center"> 
+  <img src="Photo/6B_tension.png" width="300"><br>
+  <em>Figure IV.2 : Courbe charactéristique du capteur avec le crayon 6B en tension </em>
+</p>
+<p align="center"> 
+  <img src="Photo/6B_compression.png" width="300"><br>
+  <em>Figure IV.3 : Courbe charactéristique du capteur avec le crayon 6B en compression </em>
+</p>
+
+
+**Crayon 3B**
+<p align="center"> 
+  <img src="Photo/3B_tension.png" width="300"><br>
+  <em>Figure IV.3 : Courbe charactéristique du capteur avec le crayon 3B en tension </em>
+</p>
+
+
+**Crayon B** 
+<p align="center"> 
+  <img src="Photo/B_tension.png" width="300"><br>
+  <em>Figure IV.3 : Courbe charactéristique du capteur avec le crayon B en tension </em>
+</p>
+
+
+
 # Partie V : Conclusion
 
 # Contacts
