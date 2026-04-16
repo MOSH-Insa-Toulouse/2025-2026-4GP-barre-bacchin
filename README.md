@@ -18,22 +18,25 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 
 1. Capteur en graphite 
    - Feuille de papier
-   - Différents crayons à papier (HB, 2B, 4B…)
+   - Différents crayons à papier (B, 3B et 6B)
 2. Arduino et modules
    - Carte Arduino UNO + câble USB
    - Module Bluetooth HC-05
-   - Flex Sensor + résistance de 47 Ω
+   - Flex Sensor + résistance de 47 kΩ
 3. Circuit amplificateur
    - Amplificateur opérationnel LTC1050
-   - Condensateurs : 1* 100 nF + 1* 1 µF
-   - Résistances :  1*1kΩ + 1*10kΩ + 2*100kΩ
-   - Potentiomètre digital MCP 41xxx
+   - Condensateurs : 2* 100 nF + 1* 1 µF
+   - Résistances :  1* 1kΩ + 1* 10kΩ + 2* 100kΩ
+   - Potentiomètre digital MCP 41010
 4. Matériel pour réaliser le PCB
    - Plaque d'époxy recouverte d'une couche de cuivre et de résine photosensible
    - Matériel de développement : Machine UV + révélateur + perclorure de fer
    - Machine à perforer
-   - Fer à souder + etain
-   - Pin headers 
+   - Fer à souder + étain
+   - Pin headers
+5. Banc de test
+   - Un banc de test creux avec différents rayons de courbures connus.
+   
 
 
 # Partie II : Réalisation théorique
@@ -41,12 +44,12 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 
 
 ## Partie II.1 : Conception du circuit amplificateur
-La résistance du capteur est énorme, de l'ordre du GigaOhm, ainsi le courant obtenu en sortie est très faible. Il nous faut donc amplifier le signal afin de l'exploiter.  
+La résistance du capteur est énorme, de l'ordre du Mega-Ohm, ainsi le courant obtenu en sortie est très faible. Il nous faut donc amplifier le signal afin de l'exploiter.  
 
-Pour ce faire nous avons réaliser un circuit amplificateur transimpédance que nous avons simulé sur LTSpice.
+Pour ce faire nous avons réaliser un circuit amplificateur transimpédance que nous avons simulé sur LTSpice visible en figure II.1
 <p align="center">
   <img src="Photo/Schema_capteur_photo.png" width="600"><br>
-  <em>Figure 1 – Schéma LTSpice du capteur et du circuit amplificateur</em>
+  <em>Figure II.1 – Schéma LTSpice du capteur et du circuit amplificateur</em>
 </p>
 
 
@@ -97,21 +100,21 @@ Plusieurs simulations ont été effectuées afin de vérifier :
 
 ## Partie II.2 : Design du PCB sous KiCad
 
-Une fois que nous avons fixé ce la forme de notre circuit et tous les modules que nous voulons connecté à l'Arduino, nous avons pu concevoir la shield.  
-Pour ce faire, on a utilisé le logiciel KiCad. 
+Une fois la forme du circuit fixé et tous les modules connectés à l'Arduino chosis, nous avons pu concevoir la shield.  
+Pour ce faire, nous utilisons le logiciel KiCad. 
 Comme tous les composants n'étaient pas présent dans la bibliothèque de composant de KiCad, nous avons dû réalisé les schématiques et les empreintes du flex sensor, du capteur graphite, du module bluetooth et du potentiomètre digital.   
 Voilà le schématique complet de notre shield :   
 
 <p align="center">
   <img src="Photo/schematique_global.png" width="600"><br>
-  <em>Figure 2 – Schématique kicad du projet</em>
+  <em>Figure II.2 – Schématique kicad du projet</em>
 </p>
 
 Concernant les empreintes, nous n'allons pas souder les composants onéreux directement. Ainsi pour le flex sensor et le module bluetooth nous avons prévu des pins dans lesquels nous brancherons les modules. Pour l'AOP et le potentiomètre nous allons souder des support DIP8.  
 Ainsi notre empreinte ressemble à cela :  
 <p align="center">
   <img src="Photo/Shield.png" width="600"><br>
-  <em>Figure 3 – Empreinte du projet</em>
+  <em>Figure II.3 – Empreinte du projet</em>
 </p>
 
 
@@ -119,7 +122,7 @@ Enfin la modélisation 3D donne :
 
 <p align="center">
  <img src="Photo/3D.png" width="600"><br>
-  <em>Figure 3 – Modélisation 3D du projet</em>
+  <em>Figure II.4 – Modélisation 3D du projet</em>
 </p>
 
 
@@ -137,11 +140,11 @@ Une fois cette étape terminée, les pistes sont vérifiées à l’aide d’un 
 
 ## Partie III.2 : Création du PCB
 
-Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 0,6 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
+Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 1 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
 <p align="center">
   <img src="Photo/Photo_soudure.png" width="300">
   <img src="Photo/Photo_soudure_composant.png" width="300"><br>
-  <em>Figure 4 – Soudure du PCB</em>
+  <em>Figure III.2 – Soudure du PCB avec un via </em>
 </p>
 
 
@@ -152,16 +155,16 @@ Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du ci
 
 # Partie IV : Code Arduino
 
-Pour créer le code final Arduino chargé de gérer les différents composants ; le potentiomètre digital, le module Bluetooth, le flex sensor et l’AOP. Nous avons d’abord testé l’ensemble des éléments du circuit final sur une breadboard.
-Chaque composant a été validé individuellement, puis adapté pour être cohérent avec notre projet.
-Nous avons ensuite développé un code global afin de faire fonctionner tous les modules ensemble.
+Pour créer le code final Arduino chargé de gérer les différents composants ; le potentiomètre digital, le module Bluetooth, le flex sensor et l’AOP. Nous avons d’abord testé ,indépendamment, l’ensemble des éléments du circuit final sur une breadboard 
+puis, chaque code a été adapté pour être cohérent avec notre projet.
+Enfin nous avons regroupé ces codes pour obtenir un code global qui contrôle tous les modules ensemble.
 
 ## Partie IV.1 : Code du potentiomètre digital
 
 Le potentiomètre digital est contrôlé en lui envoyant un indice compris entre 0 et 255, lequel détermine une valeur de résistance.
 Après caractérisation expérimentale, nous avons observé que le potentiomètre suit la loi :
 
-$$ R=58+indice×37 Ω$$
+$$ R=58+indice×37 \quad (Ω)$$
 
 
 Une fonction de centrage est exécutée dans la void setup() du programme.
@@ -183,7 +186,7 @@ La résistance du flex sensor est obtenue via :
 
 $$ R_{flex} = R_{div}* (\frac{Vcc}{V_{flex}} -1)$$
 
-En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47Ω$$, nous pouvons calculer la variation relative :
+En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47 kΩ$$, nous pouvons calculer la variation relative :
 
 $$\frac{R_{flex} - R_{flat}}{ R_{flat}}$$
 	​
@@ -201,28 +204,29 @@ Ces données sont envoyées depuis le programme principal Arduino.
 Voici le code de notre application MIT :
 <p align="center">
  <img src="Photo/Facearrire.png" width="600"><br>
-  <em>Figure 3 – Modélisation 3D du projet</em>
+  <em>Figure IV.1 – Code de l'application MIT</em>
 </p>
 
-L’application MIT reçoit en boucle les informations envoyées, les place dans une liste, puis exécute les opérations suivantes uniquement lorsque la liste contient 4 éléments.
-Les résistances $$R_{0}$$ et $$R_{2}$$ sont affichées dans des zones de texte et les variations relatives sont ajoutées aux deux graphes : un graphique pour le flex sensor et un graphique pour le capteur.
+L’application MIT reçoit en boucle les informations envoyées, les place dans une liste, puis exécute les opérations suivantes uniquement lorsque la liste contient 4 éléments :  
+	- Les résistances $$R_{0}$$ et $$R_{2}$$ sont affichées dans des zones de texte   
+	- les variations relatives sont ajoutées aux deux graphes : un graphique pour le flex sensor et un graphique pour le capteur.
 
 L’interface de l’application est présentée ci-dessous :
 <p align="center">
   <img src="Photo/Faceavant.png" width="550">
   <img src="Photo/Screen.jpg" width="200"><br>
-  <em>Figure 4 – Face avant de l'application MIT</em>
+  <em>Figure IV.2 – Face avant de l'application MIT, à gauche dans la phase de design, à droite en utilisation </em>
 </p>
 
-# Partie IV : Banc de test et caractérisation
+# Partie V : Banc de test et caractérisation
 
-Le circuit et le code étant fonctionnel, nous nous sommes lancé dans la caractérisation du capteur. Pour cela nous utilisons un banc de test, présenté en figure IV.1, dont les dimensions sont connues. Grâce au programme de centrage, on obtient une tension centré autour de 2.5V et on rappelle que la résistance du capteur est donnée par la formule : 
+Le circuit et le code étant fonctionnel, nous nous sommes lancé dans la caractérisation du capteur. Pour cela nous utilisons un banc de test, présenté en figure V.1, dont les dimensions sont connues. Grâce au programme de centrage, on obtient une tension centré autour de 2.5V et on rappelle que la résistance du capteur est donnée par la formule : 
 <p align="center">
   <img src="Photo/resistance_capteur.png" width="300"> <br>
   <em> (Eq.1) La resistance 2 étant celle du potentiomètre digital </em>
 </p>
 Le banc de test a des rayons de courbures allant de 1cm à 2,5cm par incrément de 0,25cm. Pour réaliser la mesure on étale le capteur sur le banc de test en le fixant de sorte à ce qu'il épouse la forme. Par cette technique la déformation appliquée est connue et contrôlée, nous permettant de caractériser de manière fiable le capteur.  
-La variable d'intérêt est la variation relative de résistance par rapport à la déformation, elles sont définies comme : 
+Les variables d'intérêts sont la variation relative de résistance et la déformation, elles sont définies comme : 
 <p align="center"> 
   <img src="Photo/variation_relative.png" width="300"><br>
   <em>(Eq.2) Ici R0 correspond à la résistance du capteur lorsqu'il est plat (flat resistance) </em>
@@ -230,55 +234,56 @@ La variable d'intérêt est la variation relative de résistance par rapport à 
 
 
 Avec tout cela nous avons pu obtenir les courbes caractéristiques de notre capteur en fonction de différents crayons à papier utilisé. Pour cela deux méthodes ont été employées :<br>  
-- Méthode 1 : la résistance R0 n'est réinitialisé qu'au début des mesures   <br>   
-- Méthode 2 : la résistance R0 est réinitialisé entre chaque mesure  <br>   
-Ces deux méthodes sont nécessaires car le capteur étant très sensible à la perte de matière du aux utilisations, la resistance R0 change beaucoup. Cependant dans une application réelle il n'est pas forcément possible de revenir à l'état plat entre chaque mesure ainsi la méthode 1 est importante.  <br>
+- Méthode 1 : la résistance R0 n'est redéterminé qu'au début des mesures   <br>   
+- Méthode 2 : la résistance R0 est redéterminé entre chaque mesure  <br>   
+Ces deux méthodes sont nécessaires car le capteur est très sensible à la perte de matière dû aux utilisations, ainsi la resistance R0 peut beaucoup varier d'une mesure à une autre. Cependant, dans une application réelle, il n'est pas forcément possible de revenir à l'état plat entre chaque mesure ainsi la méthode 1 est importante.  <br>
 <br>
 <p align="center">
   <img src="Photo/vue_dessus_banc.jpg" width="300">
   <img src="Photo/vue_face_banc.jpg" width="300"><br>
-  <em>Figure IV.1 : Banc de test utilisé </em>
+  <em>Figure V.1 : Banc de test utilisé </em>
 </p>
 
-Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de proportionnalité sur les courbes linéaires correspond à la sensibilité du capteur. La déformation en compression n'a été faite qu'avec le crayon 6B car ce test est plus coûteux en matière pour le capteur ainsi, sur les crayons moins gras, l'augmentation de résistance dû à la perte de matière prédominait devant la chute dû à la compression.
+Les différentes courbes obtenues sont présentés ci-dessous, le coefficient de proportionnalité sur les courbes linéaires correspond à la sensibilité du capteur. La déformation en compression n'a été faite qu'avec le crayon 6B car ce test est plus coûteux en matière pour le capteur. Ainsi, sur les crayons moins gras, l'augmentation de résistance dû à la perte de matière prédominait devant la chute dû à la compression.
 
 **Crayon 6B** 
 <p align="center"> 
   <img src="Photo/6B_tension.png" width="1000"><br>
-  <em>Figure IV.2 : Courbe charactéristique du capteur avec le crayon 6B en tension </em>
+  <em>Figure V.2 : Courbe charactéristique du capteur avec le crayon 6B en tension </em>
 </p>
 <p align="center"> 
   <img src="Photo/6B_compression.png" width="1000"><br>
-  <em>Figure IV.3 : Courbe charactéristique du capteur avec le crayon 6B en compression </em>
+  <em>Figure V.3 : Courbe charactéristique du capteur avec le crayon 6B en compression </em>
 </p>
 
 
 **Crayon 3B**
 <p align="center"> 
   <img src="Photo/3B_tension.png" width="1000"><br>
-  <em>Figure IV.4 : Courbe charactéristique du capteur avec le crayon 3B en tension </em>
+  <em>Figure V.4 : Courbe charactéristique du capteur avec le crayon 3B en tension </em>
 </p>
 
 
 **Crayon B** 
 <p align="center"> 
   <img src="Photo/B_tension.png" width="1000"><br>
-  <em>Figure IV.5 : Courbe charactéristique du capteur avec le crayon B en tension </em>
+  <em>Figure V.5 : Courbe charactéristique du capteur avec le crayon B en tension </em>
 </p>
 
 **Capteur commercial**
 <p align="center"> 
   <img src="Photo/Flex_sensor.png" width="1000"><br>
-  <em>Figure IV.6 : Courbe charactéristique du capteur commercial en tension </em>
+  <em>Figure V.6 : Courbe charactéristique du capteur commercial en tension </em>
 </p>
 
-On remarque que la sensibilité est plus forte pour les crayons moins gras cependant la resistance étant beaucoup plus grande le signal et les mesures obtenues sont beaucoup plus irrégulières et le capteur moins durable. En effet, le capteur perd trop de matière trop vite pour être utilisé de manière répétée.  La linéarité du capteur se voit particulièrement sur le crayon 6B qui a une courbe de tendance proche des données mesurées.  
+Il est clair que le capteur que le capteur se détériore au fil des utilisations car la méthode 1 et la méthode 2 ne donnet pas les mêmes résultats.  
+On remarque que la sensibilité est plus forte pour les crayons moins gras, cependant la resistance étant beaucoup plus grande le signal et les mesures obtenues sont beaucoup plus irrégulières et le capteur moins durable. En effet, le capteur perd trop de matière trop vite pour être utilisé de manière répétée.  La linéarité du capteur se voit particulièrement sur le crayon 6B qui a une courbe de tendance proche des données mesurées.  
 Par ailleurs, sur le crayon 3B avec la méthode 2, on observe clairement un comportement exponentiel, se rapprochant de la théorie des systèmes granulaires.  
-En comparaison avec le capteur commercial, présenté en figure IV.6, notre capteur a une piètre sensibilité et surtout subit des déformations irréversibles modifiant sa résistance à plat contrairement au capteur commercial.
+En comparaison avec le capteur commercial, présenté en figure V.6, notre capteur a une piètre sensibilité et surtout subit des déformations irréversibles modifiant sa résistance à plat contrairement au capteur commercial.
 
 
 
-# Partie V : Conclusion
+# Partie VI : Conclusion
 
 # Contacts
 
