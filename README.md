@@ -61,7 +61,7 @@ Le circuit amplificateur est constitué de trois filtres passe-bas, chacun ayant
 
 Ce filtre permet de supprimer les bruits parasites provenant de vibrations mécaniques ou de tremblements.
 
-$$ Fc_{1}  = 1/(2\pi * C1 * R1 ) = 1/(2\pi * 100n * 100k)  ≃ 16 Hz$$
+$$ Fc_{1}  = \frac{1}{2\pi * C1 * R1 } = \frac{1}{2\pi * 100n * 100k}  ≃ 16 Hz$$
 
 
 
@@ -69,7 +69,7 @@ $$ Fc_{1}  = 1/(2\pi * C1 * R1 ) = 1/(2\pi * 100n * 100k)  ≃ 16 Hz$$
 
 Ce filtre atténue les résidus issus du bruit secteur 50 Hz.
 
-$$ Fc_{2}  = 1/(2\pi * C2 * R4 ) = 1/(2\pi * 1µm * 100k)  ≃ 1.6 Hz $$
+$$ Fc_{2}  = \frac{1}{2\pi * C2 * R4 } = \frac{1}{2\pi * 1µm * 100k}  ≃ 1.6 Hz $$
 
 
 
@@ -79,18 +79,21 @@ $$ Fc_{2}  = 1/(2\pi * C2 * R4 ) = 1/(2\pi * 1µm * 100k)  ≃ 1.6 Hz $$
 
 Ce filtre élimine les bruits haute fréquence générés par l’électronique (AOP, câblage, parasites HF).
 
-$$ Fc_{3}  = 1/(2\pi * C3 * R5 ) = 1/(2\pi *100n * 1k)  ≃ 1.6 KHz $$
+$$ Fc_{3}  = \frac{1}{2\pi * C3 * R5 } = \frac{1}{2\pi *100n * 1k}  ≃ 1.6 KHz $$
 
 
 
 Plusieurs simulations ont été effectuées afin de vérifier :
--  L'amplication du le signal fourni par le capteur
-- La filtration du bruit est efficace
+- L'amplication du signal fourni par le capteur
+- La filtration du bruit 
 
 
 
 À partir du montage, il est également possible de déterminer la relation mathématique reliant la résistance du capteur à sa tension de sortie : 
-
+<p align="center">
+  <img src="Photo/resistance_capteur.png" width="300"> <br>
+  <em> (Eq.1) </em>
+</p>
 
 ## Partie II.2 : Design du PCB sous KiCad
 
@@ -178,11 +181,11 @@ Nous utilisons une fonction mesure_flex() qui renvoie la variation relative de r
 Nous mesurons d’abord la tension aux bornes du flex, notée $$𝑉_{flex}$$.
 La résistance du flex sensor est obtenue via :
 
-$$ R_{flex} = R_{div}*(Vcc/V_{flex} -1)$$
+$$ R_{flex} = R_{div}* (\frac{Vcc}{V_{flex}} -1)$$
 
 En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47Ω$$, nous pouvons calculer la variation relative :
 
-$$(R_{flex} - R_{flat}) / R_{flat}$$
+$$\frac{R_{flex} - R_{flat}}{ R_{flat}}$$
 	​
 ## Partie IV.3 : Application MIT Bluetooth
 
