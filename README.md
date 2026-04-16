@@ -195,11 +195,21 @@ Les informations suivantes sont envoyées à l’application Bluetooth, séparé
 
 Ces données sont envoyées depuis le programme principal Arduino.
 
+Voici le code de notre application MIT :
+<p align="center">
+ <img src="Photo/Facearrire.png" width="600"><br>
+  <em>Figure 3 – Modélisation 3D du projet</em>
+</p>
+
 L’application MIT reçoit en boucle les informations envoyées, les place dans une liste, puis exécute les opérations suivantes uniquement lorsque la liste contient 4 éléments.
 Les résistances $$R_{0}$$ et $$R_{2}$$ sont affichées dans des zones de texte et les variations relatives sont ajoutées aux deux graphes : un graphique pour le flex sensor et un graphique pour le capteur.
 
-L’interface finale de l’application est présentée ci-dessous :
-(insérer image)
+L’interface de l’application est présentée ci-dessous :
+<p align="center">
+  <img src="Photo/Faceavant.png" width="550">
+  <img src="Photo/Screen.jpg" width="200"><br>
+  <em>Figure 4 – Face avant de l'application MIT</em>
+</p>
 
 # Partie IV : Banc de test et caractérisation
 
