@@ -286,8 +286,9 @@ En comparaison avec le capteur commercial, présenté en figure V.6, notre capte
 # Partie VI : Conclusion
 <p align="center"> 
   <img src="Photo/Tableau conclusion.png" width="1000"><br>
-  <em>Figure V.6 : Courbe charactéristique du capteur commercial en tension </em>
+  <em>Figure VI : Tableau comparatif du capteur graphite et du capteur industriel </em>
 </p>
+
 # Contacts
 
 Voici nos contacts si vous souhaitez des informations complémentaires
