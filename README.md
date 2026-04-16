@@ -144,7 +144,7 @@ Après la gravure, les trous nécessaires à l’implantation des composants son
 
 3. Tests
 
-Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du circuit. Nous avons notamment vérifié que l’amplificateur amplifiait correctement la tension de sortie du capteur, ce qui a été confirmé expérimentalement.
+Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du circuit. Nous avons notamment vérifié que l’amplificateur amplifiait correctement la tension de sortie du capteur.
 
 
 ## Partie III.2 : Code et test du potentiometre digital
