@@ -120,19 +120,19 @@ Enfin la modélisation 3D donne :
 </p>
 
 
-# Partie III : Fabrication et Fonctionnement
-## Partie III.1 : Fabrication du PCB
+# Partie III : Fabrication du PCB
+
 Une fois le PCB conçu, vérifié et corrigé sous KiCad, nous pouvons passer à sa fabrication. Pour cela, le circuit est exporté depuis KiCad sous la forme d’un fichier typon, qui servira de base pour la gravure du circuit imprimé.
 
 À insérer : image du fichier typon
 
-1. Développement
+## Partie III.1 : Développement
 
 Le fichier typon est imprimé sur une feuille transparente afin de créer un masque. Ce masque est ensuite positionné sur une plaque d’époxy recouverte de cuivre et d’une résine photosensible.La plaque est exposée aux rayons UV, ce qui permet de transférer le motif des pistes du typon sur la résine. Après exposition, la plaque est plongée dans un révélateur afin d’éliminer la résine photosensible des zones exposées. Elle est ensuite immergée dans un bain de perchlorure de fer, qui dissout le cuivre non protégé et fait apparaître les pistes du circuit.
 
 Une fois cette étape terminée, les pistes sont vérifiées à l’aide d’un multimètre afin de détecter d’éventuelles coupures ou courts-circuits. Certaines pistes imparfaitement révélées ont été corrigées manuellement à l’aide d’un cutter.
 
-2. Création du PCB
+## Partie III.2 : Création du PCB
 
 Après la gravure, les trous nécessaires à l’implantation des composants sont percés à l’aide de deux forets de diamètres différents : 0,8 mm et 0,6 mm, en fonction des composants. Les composants électroniques sont ensuite soudés sur la carte. Un via a également été réalisé en soudant un fil reliant une piste spécifique à la masse, comme indiqué sur le typon.
 <p align="center">
@@ -142,14 +142,64 @@ Après la gravure, les trous nécessaires à l’implantation des composants son
 </p>
 
 
-3. Tests
+## Partie III.3 : Tests
 
 Enfin, des tests ont été réalisés pour vérifier le bon fonctionnement du circuit. Nous avons notamment vérifié que l’amplificateur amplifiait correctement la tension de sortie du capteur.
 
 
-## Partie III.2 : Code et test du potentiometre digital
+# Partie IV : Code Arduino
 
-## Partie III.3 : Application android
+Pour créer le code final Arduino chargé de gérer les différents composants ; le potentiomètre digital, le module Bluetooth, le flex sensor et l’AOP. Nous avons d’abord testé l’ensemble des éléments du circuit final sur une breadboard.
+Chaque composant a été validé individuellement, puis adapté pour être cohérent avec notre projet.
+Nous avons ensuite développé un code global afin de faire fonctionner tous les modules ensemble.
+
+## Partie IV.1 : Code du potentiomètre digital
+
+Le potentiomètre digital est contrôlé en lui envoyant un indice compris entre 0 et 255, lequel détermine une valeur de résistance.
+Après caractérisation expérimentale, nous avons observé que le potentiomètre suit la loi :
+
+$$ R=58+indice×37 Ω$$
+
+
+Une fonction de centrage est exécutée dans la void setup() du programme.
+Son objectif est de centrer le signal de sortie autour de 2,5 V en ajustant la résistance du potentiomètre digital.
+
+Une boucle for fait varier l’indice de 0 à 255.
+Pour chaque valeur, nous envoyons l’indice au potentiomètre et vérifions si la tension de sortie se situe autour de 2,5 V ± 0,4 V.
+Si cette condition est remplie, la boucle est interrompue.
+Si elle ne l’est jamais, la boucle se termine naturellement et nous conservons l’indice pour lequel la tension était la plus proche de 2,5 V.
+
+À partir de cet indice, nous déduisons la résistance du potentiomètre $$𝑅_{2}$$ grâce à la loi caractérisée puis, grâce à l’équation 1, nous retrouvons la résistance initiale du capteur avant déformation, notée $$𝑅_{0}$$
+
+## Partie IV.2 : Code pour le flex sensor
+
+Nous utilisons une fonction mesure_flex() qui renvoie la variation relative de résistance du flex sensor.
+
+Nous mesurons d’abord la tension aux bornes du flex, notée $$𝑉_{flex}$$.
+La résistance du flex sensor est obtenue via :
+
+$$ R_{flex} = R_{div}*(Vcc/V_{flex} -1)$$
+
+En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47Ω$$, nous pouvons calculer la variation relative :
+
+$$(R_{flex} - R_{flat}) / R_{flat}$$
+	​
+## Partie IV.3 : Application MIT Bluetooth
+
+Les informations suivantes sont envoyées à l’application Bluetooth, séparées par des points :
+
+- la variation relative du capteur
+- la variation relative du flex sensor
+- la résistance du capteur avant déformation ( $$R_{0}$$)
+- la résistance du potentiomètre digital ( $$R_{2}$$)
+
+Ces données sont envoyées depuis le programme principal Arduino.
+
+L’application MIT reçoit en boucle les informations envoyées, les place dans une liste, puis exécute les opérations suivantes uniquement lorsque la liste contient 4 éléments.
+Les résistances $$R_{0}$$ et $$R_{2}$$ sont affichées dans des zones de texte et les variations relatives sont ajoutées aux deux graphes : un graphique pour le flex sensor et un graphique pour le capteur.
+
+L’interface finale de l’application est présentée ci-dessous :
+(insérer image)
 
 # Partie IV : Banc de test et caractérisation
 
