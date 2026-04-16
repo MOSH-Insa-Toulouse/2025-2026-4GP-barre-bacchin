@@ -17,7 +17,7 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
 ## Partie I.2 : Liste du matériel utilisé
 
 1. Capteur en graphite 
-   - Feuille de papier
+   - Feuille de papier d'épaisseur 0.35mm
    - Différents crayons à papier (B, 3B et 6B)
 2. Arduino et modules
    - Carte Arduino UNO + câble USB
@@ -35,7 +35,7 @@ Notre travail consiste a réaliser le capteur, le circuit électronique de lectu
    - Fer à souder + étain
    - Pin headers
 5. Banc de test
-   - Un banc de test creux avec différents rayons de courbures connus.
+   - Banc de test creux avec différents rayons de courbures connus.
    
 
 
@@ -186,9 +186,9 @@ La résistance du flex sensor est obtenue via :
 
 $$ R_{flex} = R_{div}* (\frac{Vcc}{V_{flex}} -1)$$
 
-En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47 kΩ$$, nous pouvons calculer la variation relative :
+En connaissant la résistance du flex à plat $$𝑅_{flat}$$ et la resistance du pont diviseur $$R_{div} = 47 kΩ$$.
 
-$$\frac{R_{flex} - R_{flat}}{ R_{flat}}$$
+Nous pouvons aussi calculer la variation relative de la resistance du flex sensor : $$\frac{R_{flex} - R_{flat}}{ R_{flat}}$$
 	​
 ## Partie IV.3 : Application MIT Bluetooth
 
@@ -234,8 +234,8 @@ Les variables d'intérêts sont la variation relative de résistance et la défo
 
 
 Avec tout cela nous avons pu obtenir les courbes caractéristiques de notre capteur en fonction de différents crayons à papier utilisé. Pour cela deux méthodes ont été employées :<br>  
-- Méthode 1 : la résistance R0 n'est redéterminé qu'au début des mesures   <br>   
-- Méthode 2 : la résistance R0 est redéterminé entre chaque mesure  <br>   
+- Méthode 1 : la résistance R0 n'est redéterminée qu'au début des mesures   <br>   
+- Méthode 2 : la résistance R0 est redéterminée entre chaque mesure  <br>   
 Ces deux méthodes sont nécessaires car le capteur est très sensible à la perte de matière dû aux utilisations, ainsi la resistance R0 peut beaucoup varier d'une mesure à une autre. Cependant, dans une application réelle, il n'est pas forcément possible de revenir à l'état plat entre chaque mesure ainsi la méthode 1 est importante.  <br>
 <br>
 <p align="center">
