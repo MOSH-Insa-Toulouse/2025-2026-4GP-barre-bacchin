@@ -130,7 +130,10 @@ Enfin la modélisation 3D donne :
 
 Une fois le PCB conçu, vérifié et corrigé sous KiCad, nous pouvons passer à sa fabrication. Pour cela, le circuit est exporté depuis KiCad sous la forme d’un fichier typon, qui servira de base pour la gravure du circuit imprimé.
 
-À insérer : image du fichier typon
+<p align="center">
+ <img src="Photo/Typon.png" width="600"><br>
+  <em>Figure III.1 – Fichier typon </em>
+</p>
 
 ## Partie III.1 : Développement
 
