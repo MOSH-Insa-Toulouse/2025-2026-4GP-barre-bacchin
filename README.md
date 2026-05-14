@@ -287,6 +287,14 @@ En comparaison avec le capteur commercial, présenté en figure V.6, notre capte
 
 
 # Partie VI : Conclusion
+L’objectif de ce projet était de déterminer si un capteur en graphite pouvait être industrialisé. Pour y parvenir, nous avons réalisé l’ensemble du processus de développement : conception et fabrication du capteur, création du circuit amplificateur, design et production du PCB, ainsi que le développement logiciel nécessaire au traitement du signal. L’ensemble de cette chaîne nous a permis d’obtenir un capteur fonctionnel et une acquisition des données opérationnelle. Un banc de test a également été développé afin d’évaluer le comportement du capteur avec différents crayons et sous des déformations mécaniques contrôlées.
+
+Les résultats obtenus montrent que la sensibilité du capteur varie fortement, généralement entre 30 et 100 selon le type de crayon utilisé. Cette variabilité importante, ainsi que les niveaux de sensibilité obtenus, restent loin des performances attendues pour une jauge de contrainte industrielle. Malgré cela, notre capteur présente plusieurs qualités : il est capable de mesurer aussi bien la traction que la compression, il est extrêmement économique, rapide à produire, accessible à tous et facilement remplaçable.
+
+Cependant, plusieurs limitations majeures compromettent toute industrialisation dans l’état actuel. Les points de contact sont instables et modifient la mesure au cours du temps. Le capteur se déforme rapidement, parfois dès les premières utilisations, et sa durée de vie ne dépasse pas une dizaine de mesures fiables. De plus, la perte progressive du graphite altère inévitablement la répétabilité et la précision des résultats.
+
+Ainsi, dans sa forme actuelle, ce capteur ne peut pas être considéré comme industrialisable. Toutefois, certaines améliorations pourraient significativement augmenter sa fiabilité, par exemple l’utilisation d’électrodes fixes, la plastification du capteur afin de stabiliser le graphite et d’éviter la dégradation du papier. Si l’on considère que la majorité des dérives provient de la perte de matière graphite plutôt que d’une modification durable de la structure conductrice, alors ces améliorations pourraient rendre le capteur plus stable et durable.
+
 <p align="center"> 
   <img src="Photo/Tableau conclusion.png" width="1000"><br>
   <em>Figure VI : Tableau comparatif du capteur graphite et du capteur industriel </em>
